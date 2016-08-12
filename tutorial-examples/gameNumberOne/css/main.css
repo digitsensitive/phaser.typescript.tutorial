@@ -1,0 +1,26 @@
+body {
+  font-size: 10px;
+  color: white;
+  background-color: #56849e;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 200;
+  font-size: 25px;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 200;
+  font-size: 10px;
+}
+
+div.container {
+  padding-top: 10px;
+}
+
+div#gameNumberOne{
+  border: 5px solid #FFFFFF;
+  width: 800px;
+}
