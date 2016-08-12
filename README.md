@@ -14,4 +14,4 @@ Visit the official TypeScript Website.
 
 **Are you ready?**
 
-<a href="https://github.com/Wizak/phaser.ts.tutorial/wiki">> Wiki with the tutorials</a>
+<a href="https://github.com/Wizak/phaser.typescript.tutorial/wiki">> Wiki with the tutorials</a>
