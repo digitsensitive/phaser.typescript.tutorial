@@ -15,3 +15,5 @@ Visit the official [TypeScript Website](https://www.typescriptlang.org).
 **Are you ready?**
 
 <a href="https://github.com/Wizak/phaser.typescript.tutorial/wiki">> Wiki with the tutorials</a>
+
+Last update: 13.02.2017
