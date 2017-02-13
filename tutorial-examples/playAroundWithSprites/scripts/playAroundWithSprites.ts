@@ -1,12 +1,12 @@
 /// <reference path="../lib/typings/phaser.d.ts"/>
 
-class gameNumberOne {
+class playAroundWithSprites {
 
   private logo: Phaser.Sprite;
   private game: Phaser.Game;
 
   	constructor(width: number, height: number) {
-      this.game = new Phaser.Game(width, height, Phaser.AUTO, 'gameNumberOne', { preload: this.preload, create: this.create });
+      this.game = new Phaser.Game(width, height, Phaser.AUTO, 'playAroundWithSprites', { preload: this.preload, create: this.create });
     }
 
     preload(): void {
@@ -22,5 +22,5 @@ class gameNumberOne {
 }
 
 window.onload = () => {
-  var game = new gameNumberOne(800, 600);
+  var game = new playAroundWithSprites(800, 600);
 }
