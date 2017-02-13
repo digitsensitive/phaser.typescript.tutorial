@@ -4,6 +4,14 @@ module PlayAroundWithSprites {
 
   export class Game extends Phaser.Game {
 
+    /**
+     * [Constructor of the main game class]
+     * @param  {number | string}      width  [width of game screen]
+     * @param  {number | string}      height [height of game screen]
+     * @param  {boolean}   transparent [description]
+     * @param  {boolean}   antialias   [antialias on/off]
+     * @return {[type]}                [description]
+     */
   	constructor(width: number | string, height: number | string, transparent: boolean, antialias: boolean) {
 
   		super(
