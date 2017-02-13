@@ -13,9 +13,7 @@ module PlayAroundWithSprites {
      * @return {[type]}                [description]
      */
   	constructor(width: number | string, height: number | string, transparent: boolean, antialias: boolean) {
-
-  		super(
-        width,
+  		super(width,
         height,
         Phaser.AUTO,
         'playAroundWithSprites',
