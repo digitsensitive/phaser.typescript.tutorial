@@ -1,6 +1,6 @@
 /// <reference path="../lib/typings/phaser.d.ts"/>
 
-class gameNumberOne {
+export class gameNumberOne {
 
   private logo: Phaser.Sprite;
   private game: Phaser.Game;
