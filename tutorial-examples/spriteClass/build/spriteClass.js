@@ -58,6 +58,8 @@ var spriteClass;
             var _this = _super.call(this, game, x, y, 'player', 0) || this;
             _this.anchor.setTo(0.5, 0.5);
             _this.scale.set(3);
+            _this.inputEnabled = true;
+            _this.input.draggable = true;
             game.physics.enable(_this, Phaser.Physics.ARCADE);
             _this.body.setSize(84, 12, 0, 0);
             _this.body.drag.set(70);
@@ -65,6 +67,7 @@ var spriteClass;
             game.add.existing(_this);
             return _this;
         }
+        Player.prototype.preUpdate = function () { };
         Player.prototype.update = function () {
             if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
                 this.body.velocity.x += -20;
@@ -84,49 +87,8 @@ var spriteClass;
             }
             this.game.world.wrap(this, 16);
         };
-        Player.prototype.render = function () {
-        };
+        Player.prototype.postUpdate = function () { };
         return Player;
     }(Phaser.Sprite));
     spriteClass.Player = Player;
 })(spriteClass || (spriteClass = {}));
-var phaserSprite;
-(function (phaserSprite) {
-    var Player = (function (_super) {
-        __extends(Player, _super);
-        function Player(game, x, y, key, frame) {
-            var _this = _super.call(this, game, x, y, 'player', 0) || this;
-            _this.anchor.setTo(0.5, 0.5);
-            _this.scale.set(3);
-            game.physics.enable(_this, Phaser.Physics.ARCADE);
-            _this.body.setSize(84, 12, 0, 0);
-            _this.body.drag.set(70);
-            _this.body.maxVelocity.set(800);
-            game.add.existing(_this);
-            return _this;
-        }
-        Player.prototype.update = function () {
-            if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
-                this.body.velocity.x += -20;
-            }
-            else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-                this.body.velocity.x += 20;
-            }
-            else if (this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN)) {
-                this.body.velocity.y += 20;
-            }
-            else if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
-                this.body.velocity.y -= 20;
-            }
-            else {
-                this.body.velocity.x = 0;
-                this.body.velocity.y = 0;
-            }
-            this.game.world.wrap(this, 16);
-        };
-        Player.prototype.render = function () {
-        };
-        return Player;
-    }(Phaser.Sprite));
-    phaserSprite.Player = Player;
-})(phaserSprite || (phaserSprite = {}));
