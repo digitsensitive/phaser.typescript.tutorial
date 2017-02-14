@@ -1,8 +1,8 @@
-module PlayAroundWithSprites {
+module phaserSprite {
 
   export class GameContent extends Phaser.State {
 
-    player: PlayAroundWithSprites.Player;
+    player: phaserSprite.Player;
 
     preload() {
       this.game.load.image('player', 'assets/sprites/playerGreen.png');

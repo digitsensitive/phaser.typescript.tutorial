@@ -1,4 +1,4 @@
-module PlayAroundWithSprites {
+module phaserSprite {
 
     // ** here we have to use the capabilities of Phase.Sprite, the constructor must be identical for required fields
     // Sprite: A Game Object with a texture, capable of running animation, input events and physics.
