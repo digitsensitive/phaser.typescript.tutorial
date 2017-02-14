@@ -1,6 +1,6 @@
 /// <reference path="../lib/typings/phaser.d.ts"/>
 
-module phaserSprite {
+module spriteClass {
 
   export class Game extends Phaser.Game {
 
@@ -19,7 +19,7 @@ module phaserSprite {
   		super(width,
         height,
         Phaser.AUTO,
-        'phaserSprite',
+        'spriteClass',
         null,
         transparent,
         antialias);
@@ -39,5 +39,5 @@ module phaserSprite {
 
 // when the page has finished loading, create our game
 window.onload = () => {
-  var game = new phaserSprite.Game(800, 600, false, false);
+  var game = new spriteClass.Game(800, 600, false, false);
 }

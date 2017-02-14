@@ -1,8 +1,8 @@
-module phaserSprite {
+module spriteClass {
 
   export class GameState extends Phaser.State {
 
-    player: phaserSprite.Player;
+    player: spriteClass.Player;
 
     /*
      * first function called when the state starts up
