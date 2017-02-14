@@ -27,13 +27,25 @@ var phaserSprite;
         function GameContent() {
             return _super.apply(this, arguments) || this;
         }
-        GameContent.prototype.preload = function () {
-            this.game.load.image('player', 'assets/sprites/playerGreen.png');
+        GameContent.prototype.init = function () {
             this.game.physics.startSystem(Phaser.Physics.ARCADE);
         };
+        GameContent.prototype.preload = function () {
+            this.game.load.image('player', 'assets/sprites/playerGreen.png');
+        };
+        GameContent.prototype.loadUpdate = function () { };
+        GameContent.prototype.loadRender = function () { };
         GameContent.prototype.create = function () {
             this.player = new phaserSprite.Player(this.game, this.game.world.centerX, this.game.world.centerY);
         };
+        GameContent.prototype.update = function () { };
+        GameContent.prototype.preRender = function () { };
+        GameContent.prototype.render = function () { };
+        GameContent.prototype.paused = function () { };
+        GameContent.prototype.pauseUpdate = function () { };
+        GameContent.prototype.resize = function () { };
+        GameContent.prototype.resumed = function () { };
+        GameContent.prototype.shutdown = function () { };
         return GameContent;
     }(Phaser.State));
     phaserSprite.GameContent = GameContent;
