@@ -1,6 +1,6 @@
 module phaserSprite {
 
-  export class GameContent extends Phaser.State {
+  export class GameState extends Phaser.State {
 
     player: phaserSprite.Player;
 

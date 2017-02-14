@@ -25,14 +25,14 @@ module phaserSprite {
         antialias);
 
       /*
-       * Phaser.StateManager.add -> Create GameContent State
+       * Phaser.StateManager.add -> Create GameState State
        */
-      this.state.add('GameContent', GameContent, false);
+      this.state.add('GameState', GameState, false);
 
       /*
-       * Load up the GameContent State
+       * Load up the GameState State
        */
-      this.state.start('GameContent');
+      this.state.start('GameState');
     }
   }
 }

@@ -9,8 +9,8 @@ var phaserSprite;
         __extends(Game, _super);
         function Game(width, height, transparent, antialias) {
             var _this = _super.call(this, width, height, Phaser.AUTO, 'phaserSprite', null, transparent, antialias) || this;
-            _this.state.add('GameContent', phaserSprite.GameContent, false);
-            _this.state.start('GameContent');
+            _this.state.add('GameState', phaserSprite.GameState, false);
+            _this.state.start('GameState');
             return _this;
         }
         return Game;
@@ -22,33 +22,33 @@ window.onload = function () {
 };
 var phaserSprite;
 (function (phaserSprite) {
-    var GameContent = (function (_super) {
-        __extends(GameContent, _super);
-        function GameContent() {
+    var GameState = (function (_super) {
+        __extends(GameState, _super);
+        function GameState() {
             return _super.apply(this, arguments) || this;
         }
-        GameContent.prototype.init = function () {
+        GameState.prototype.init = function () {
             this.game.physics.startSystem(Phaser.Physics.ARCADE);
         };
-        GameContent.prototype.preload = function () {
+        GameState.prototype.preload = function () {
             this.game.load.image('player', 'assets/sprites/playerGreen.png');
         };
-        GameContent.prototype.loadUpdate = function () { };
-        GameContent.prototype.loadRender = function () { };
-        GameContent.prototype.create = function () {
+        GameState.prototype.loadUpdate = function () { };
+        GameState.prototype.loadRender = function () { };
+        GameState.prototype.create = function () {
             this.player = new phaserSprite.Player(this.game, this.game.world.centerX, this.game.world.centerY);
         };
-        GameContent.prototype.update = function () { };
-        GameContent.prototype.preRender = function () { };
-        GameContent.prototype.render = function () { };
-        GameContent.prototype.paused = function () { };
-        GameContent.prototype.pauseUpdate = function () { };
-        GameContent.prototype.resize = function () { };
-        GameContent.prototype.resumed = function () { };
-        GameContent.prototype.shutdown = function () { };
-        return GameContent;
+        GameState.prototype.update = function () { };
+        GameState.prototype.preRender = function () { };
+        GameState.prototype.render = function () { };
+        GameState.prototype.paused = function () { };
+        GameState.prototype.pauseUpdate = function () { };
+        GameState.prototype.resize = function () { };
+        GameState.prototype.resumed = function () { };
+        GameState.prototype.shutdown = function () { };
+        return GameState;
     }(Phaser.State));
-    phaserSprite.GameContent = GameContent;
+    phaserSprite.GameState = GameState;
 })(phaserSprite || (phaserSprite = {}));
 var phaserSprite;
 (function (phaserSprite) {
