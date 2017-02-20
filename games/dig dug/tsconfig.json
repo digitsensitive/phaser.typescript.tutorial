@@ -2,6 +2,6 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "outFile": "build/basicSetup.js"
+        "outFile": "build/digDug.js"
     }
 }

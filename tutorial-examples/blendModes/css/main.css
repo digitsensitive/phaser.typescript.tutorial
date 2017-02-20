@@ -1,7 +1,7 @@
 body {
   font-size: 10px;
   color: white;
-  background-color: #56849e;
+  background-color: #1f3642;
 }
 
 h1 {
@@ -20,7 +20,7 @@ div.container {
   padding-top: 10px;
 }
 
-div#basicSetup{
+div#blendModes{
   border: 5px solid #FFFFFF;
-  width: 800px;
+  width: 635px;
 }
