@@ -5,6 +5,18 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var digDug;
 (function (digDug) {
+    var CollisionManager = (function () {
+        function CollisionManager(game) {
+            this.m_game = game;
+        }
+        CollisionManager.prototype.update = function () {
+        };
+        return CollisionManager;
+    }());
+    digDug.CollisionManager = CollisionManager;
+})(digDug || (digDug = {}));
+var digDug;
+(function (digDug) {
     var enemyStates;
     (function (enemyStates) {
         enemyStates[enemyStates["ALIVE"] = 0] = "ALIVE";
@@ -97,9 +109,7 @@ var digDug;
             this.m_circleForHealthText.clear();
             this.m_circleForHealthText.lineStyle(3, 0xffd900, 1);
             this.m_circleForHealthText.beginFill(0xFF0000, 1);
-            this.m_circleForHealthText.drawCircle(this.position.x + 12, this.position.y + 12, 20);
             this.healthText.destroy();
-            this.healthText = this.game.add.text(this.position.x + 5, this.position.y + 5, "" + this.enemyHealth, { font: "12px Arial", fill: "#FFFFFF", align: "center" });
         };
         return Enemy;
     }(Phaser.Sprite));
@@ -139,7 +149,7 @@ var digDug;
         GameState.prototype.init = function () {
             this.m_player = this.m_enemy = this.m_enemies = null;
             this.m_land = this.m_background = null;
-            this.m_playerHealth = null;
+            this.m_playerHealthText = null;
             this.m_numberOfEnemies = 10;
         };
         GameState.prototype.preload = function () {
@@ -155,17 +165,21 @@ var digDug;
             this.m_background = this.add.sprite(0, 0, 'background');
             this.m_background.scale.setTo(20, 20);
             this.m_land = this.add.bitmapData(800, 600);
-            this.m_land.draw('land', 0, 0, null, null);
+            this.m_land.smoothed = false;
+            this.m_land.draw('land', 0, 0, 800, 600);
             this.m_land.update();
-            this.m_land.addToWorld();
-            this.m_player = new digDug.Player(this.game, this.world.centerX, 129);
+            this.m_land.addToWorld(0, 0, 0, 0, 1, 1);
+            this.m_player = new digDug.Player(this.game, this.world.centerX, 350);
             this.m_enemies = new digDug.GroupGenerator(this.game);
             for (var x = 0; x < this.m_numberOfEnemies; x++) {
                 this.m_enemy = this.m_enemies.add(new digDug.Enemy(this.game, Math.floor(Math.random() * 700) + 100, Math.floor(Math.random() * 500) + 100));
             }
-            this.m_playerHealth = this.game.add.text(10, 500, "Health: " + this.m_player.getPlayerHealth(), { font: "20px Arial", fill: "#FFFFFF", align: "center" });
+            this.m_playerHealthText = this.game.add.text(10, 500, "Health: " + this.m_player.getPlayerHealth(), { font: "20px Arial", fill: "#FFFFFF", align: "center" });
         };
         GameState.prototype.update = function () {
+            this.collisionCheck();
+        };
+        GameState.prototype.collisionCheck = function () {
             this.checkCollisionPlayerAndTerrain();
             this.game.physics.arcade.overlap(this.m_player, this.m_enemies, this.playerEnemyHit, null, this);
             if (this.m_player.getSword().getActivation()) {
@@ -206,8 +220,8 @@ var digDug;
             if (_player.getCurrentState() == digDug.playerStates.ALIVE) {
                 _player.setCurrentState(digDug.playerStates.HIT);
                 _player.setPlayerHealth(_player.getPlayerHealth() - 10.0);
-                this.m_playerHealth.destroy();
-                this.m_playerHealth = this.game.add.text(10, 500, "Health: " + this.m_player.getPlayerHealth(), { font: "20px Arial", fill: "#FFFFFF", align: "center" });
+                this.m_playerHealthText.destroy();
+                this.m_playerHealthText = this.game.add.text(10, 500, "Health: " + this.m_player.getPlayerHealth(), { font: "20px Arial", fill: "#FFFFFF", align: "center" });
             }
         };
         GameState.prototype.attackHitEnemy = function (_player, _enemy) {
@@ -379,7 +393,7 @@ var digDug;
                 this.currentLookingDirection = lookingDirection.DOWN;
                 this.keyVerticalyPressed = true;
             }
-            else if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP) && this.position.y > 129 &&
+            else if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP) && this.position.y > 350 &&
                 this.keyHorizontalyPressed != true) {
                 this.body.velocity.y -= this.walkingSpeed;
                 if (this.isCollidingWithTerrain) {

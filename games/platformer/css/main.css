@@ -14,7 +14,8 @@ div.container {
   padding: 0;
 }
 
-div#digDug{
+div#platformer{
   border: 10px solid #FFFFFF;
+  border-radius: 8px;
   width: 800px;
 }

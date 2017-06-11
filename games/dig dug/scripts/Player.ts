@@ -216,7 +216,7 @@ module digDug {
             this.keyVerticalyPressed = true;
           }
 
-          else if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP) && this.position.y > 129 &&
+          else if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP) && this.position.y > 350 &&
             this.keyHorizontalyPressed != true) {
             this.body.velocity.y -= this.walkingSpeed;
 

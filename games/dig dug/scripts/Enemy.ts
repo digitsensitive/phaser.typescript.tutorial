@@ -178,10 +178,10 @@ module digDug {
           //this.m_circleForHealthText = this.game.add.graphics(0, 0);
           this.m_circleForHealthText.lineStyle(3, 0xffd900, 1);
           this.m_circleForHealthText.beginFill(0xFF0000, 1);
-          this.m_circleForHealthText.drawCircle(this.position.x + 12, this.position.y + 12, 20);
+          //this.m_circleForHealthText.drawCircle(this.position.x + 12, this.position.y + 12, 20);
 
           this.healthText.destroy();
-          this.healthText = this.game.add.text(this.position.x + 5, this.position.y + 5, "" + this.enemyHealth, { font: "12px Arial", fill: "#FFFFFF", align: "center" });
+          //this.healthText = this.game.add.text(this.position.x + 5, this.position.y + 5, "" + this.enemyHealth, { font: "12px Arial", fill: "#FFFFFF", align: "center" });
 
         }
 

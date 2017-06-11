@@ -12,7 +12,7 @@ module digDug {
     private m_background: Phaser.Sprite;
 
     //* Game Text
-    private m_playerHealth: Phaser.Text;
+    private m_playerHealthText: Phaser.Text;
 
     //* Game Variables
     private m_numberOfEnemies: number;
@@ -30,7 +30,7 @@ module digDug {
 
       this.m_player = this.m_enemy = this.m_enemies = null;
       this.m_land = this.m_background = null;
-      this.m_playerHealth = null;
+      this.m_playerHealthText = null;
       this.m_numberOfEnemies = 10;
 
     }
@@ -66,13 +66,15 @@ module digDug {
      * CREATE() IS CALLED AFTER PRELOAD()
      * CREATE YOUR OBJECTS HERE
      */
-    create() {
+    create(): void {
 
       //* Create the landscape (background and land)
       this.m_background = this.add.sprite(0, 0, 'background');
       this.m_background.scale.setTo(20, 20);
 
       this.m_land = this.add.bitmapData(800, 600);
+      this.m_land.smoothed = false;
+
 
       //* Draws the given Phaser.Sprite, Phaser.Image or Phaser.Text
       //* to this BitmapData at the coordinates specified.
@@ -82,14 +84,16 @@ module digDug {
       //* multiply, screen, overlay, darken, lighten, color-dodge, color-burn,
       //* hard-light, soft-light, difference, exclusion, hue, saturation, color,
       //* luminosity
-      this.m_land.draw('land', 0, 0, null, null);
+      this.m_land.draw('land', 0, 0, 800, 600);
+
 
       //* This re-creates the BitmapData.imageData from the current context
       this.m_land.update();
-      this.m_land.addToWorld();
+      this.m_land.addToWorld(0, 0, 0, 0, 1, 1);
+
 
       //* Create the player and the enemies
-      this.m_player = new Player(this.game, this.world.centerX, 129);
+      this.m_player = new Player(this.game, this.world.centerX, 350);
       this.m_enemies = new GroupGenerator(this.game);
 
           for (var x = 0; x < this.m_numberOfEnemies; x++)
@@ -98,7 +102,7 @@ module digDug {
           }
 
       //* Create the texts
-      this.m_playerHealth = this.game.add.text(10, 500, "Health: " + this.m_player.getPlayerHealth(), { font: "20px Arial", fill: "#FFFFFF", align: "center" });
+      this.m_playerHealthText = this.game.add.text(10, 500, "Health: " + this.m_player.getPlayerHealth(), { font: "20px Arial", fill: "#FFFFFF", align: "center" });
 
     }
 
@@ -107,7 +111,14 @@ module digDug {
      * AFTER debug, physics, plugins and the Stage have had their preUpdate methods called.
      * BEFORE Stage, Tweens, Sounds, Input, Physics, Particles and Plugins have had their postUpdate methods called.
      */
-    update() {
+    update(): void {
+
+      this.collisionCheck();
+
+
+    }
+
+    collisionCheck(): void {
 
       //* Check Collision Player vs. Terrain
       this.checkCollisionPlayerAndTerrain();
@@ -120,9 +131,10 @@ module digDug {
       if (this.m_player.getSword().getActivation()) {
         this.game.physics.arcade.overlap(this.m_player.getSword(), this.m_enemies, this.attackHitEnemy, null, this);
       }
+
     }
 
-    checkCollisionPlayerAndTerrain() {
+    checkCollisionPlayerAndTerrain(): void {
 
       //* Check if the player is moving horizontal
       if (this.m_player.body.velocity.x != 0) {
@@ -189,16 +201,16 @@ module digDug {
 
     }
 
-    playerEnemyHit(_player, _enemy) {
+    playerEnemyHit(_player, _enemy): void {
       if (_player.getCurrentState() == playerStates.ALIVE) {
         _player.setCurrentState(playerStates.HIT);
         _player.setPlayerHealth(_player.getPlayerHealth() - 10.0);
-        this.m_playerHealth.destroy();
-        this.m_playerHealth = this.game.add.text(10, 500, "Health: " + this.m_player.getPlayerHealth(), { font: "20px Arial", fill: "#FFFFFF", align: "center" });
+        this.m_playerHealthText.destroy();
+        this.m_playerHealthText = this.game.add.text(10, 500, "Health: " + this.m_player.getPlayerHealth(), { font: "20px Arial", fill: "#FFFFFF", align: "center" });
       }
     }
 
-    attackHitEnemy(_player, _enemy) {
+    attackHitEnemy(_player, _enemy): void {
       if (_enemy.getCurrentState() == enemyStates.ALIVE) {
         _enemy.setEnemyHealth(_enemy.getEnemyHealth() - 10.0);
         _enemy.setCurrentState(enemyStates.PARALYSED);
