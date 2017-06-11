@@ -1,7 +1,7 @@
 # Welcome to this repository about creating games with Phaser in TypeScript.
 
-![](https://github.com/digitsensitive/phaser.typescript.tutorial/blob/master/resources/github/phaser.png =250x)
-![](https://github.com/digitsensitive/phaser.typescript.tutorial/blob/master/resources/github/typescript.png =250x)
+<img src="https://github.com/digitsensitive/phaser.typescript.tutorial/blob/master/resources/github/phaser.png" alt="Drawing" style="width: 250;"/>
+<img src="https://github.com/digitsensitive/phaser.typescript.tutorial/blob/master/resources/github/typescript.png" alt="Drawing" style="width: 250px;"/>
 
 ## What is Phaser?
 
