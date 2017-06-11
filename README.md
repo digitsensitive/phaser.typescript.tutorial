@@ -1,5 +1,7 @@
 # Welcome to this repository about creating games with Phaser in TypeScript.
 
+![GitHub Logo](https://github.com/digitsensitive/phaser.typescript.tutorial/tree/master/tutorial-examples/github/phaser.png)
+
 ## What is Phaser?
 
 Phaser is a fast, free, and fun open source HTML5 game framework. It uses a custom build of Pixi.js for WebGL and Canvas rendering, and supports desktop and mobile web browsers. Games can be compiled to iOS, Android and native desktop apps via 3rd party tools. You can use JavaScript or TypeScript for development.
