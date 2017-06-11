@@ -1,1 +1,6 @@
-<h2>Here you find the resources of all the examples in the tutorial.</h2>
+# Resources
+
+Here you can find the resources (images, sounds etc.) of the examples.  
+
+- Basic setup
+- Github
