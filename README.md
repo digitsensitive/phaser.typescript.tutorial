@@ -15,7 +15,7 @@ Visit the [Phaser Website](http://phaser.io) and follow on
 
 ## What is TypeScript?
 
-<img src="https://github.com/digitsensitive/phaser.typescript.tutorial/blob/master/resources/github/typescript.png" align="right" width="200"/>
+<img src="https://github.com/digitsensitive/phaser.typescript.tutorial/blob/master/resources/github/typescript.png" align="right" width="100"/>
 
 TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.  
 It was designed by Anders Hejlsberg at Microsoft as an open-source project.  
@@ -25,5 +25,5 @@ Visit the official [TypeScript Website](https://www.typescriptlang.org).
 ## Are you ready?
 
 [Wiki](https://github.com/digitsensitive/phaser.typescript.tutorial/wiki) with the tutorials.
-  
+
 Last update: 11.06.2017
