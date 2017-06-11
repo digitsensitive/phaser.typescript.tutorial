@@ -1,4 +1,4 @@
-# Creating games with Phaser in TypeScript.
+# Creating games with Phaser in TypeScript
 
 ## What is Phaser?
 
