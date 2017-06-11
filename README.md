@@ -2,7 +2,7 @@
 
 ## What is Phaser?
 
-<img src="https://github.com/digitsensitive/phaser.typescript.tutorial/blob/master/resources/github/phaser.png" align="left" width="250"/>
+<img src="https://github.com/digitsensitive/phaser.typescript.tutorial/blob/master/resources/github/phaser.png" align="left" width="200"/>
 
 Phaser is a fast, free, and fun open source HTML5 game framework.
 It uses a custom build of Pixi.js for WebGL and Canvas rendering, and supports
@@ -15,7 +15,7 @@ Visit the [Phaser Website](http://phaser.io) and follow on
 
 ## What is TypeScript?
 
-<img src="https://github.com/digitsensitive/phaser.typescript.tutorial/blob/master/resources/github/typescript.png" align="right" width="250"/>
+<img src="https://github.com/digitsensitive/phaser.typescript.tutorial/blob/master/resources/github/typescript.png" align="right" width="200"/>
 
 TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
 It was designed by Anders Hejlsberg at Microsoft as an open-source project.
